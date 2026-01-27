@@ -126,26 +126,6 @@ export default function Hero() {
 
   return (
     <Box width={{ xs: '90%', md: '80%', lg: '60%' }}>
-      <Stack mb={1} direction={'row'} spacing={1} justifyContent={'center'}>
-        <Typography sx={{ textAlign: 'center' }} fontSize={{ xs: 25, md: 30 }}>
-          {t('translation:hero.title')}{' '}
-          <Typography
-            fontSize={{ xs: 25, md: 30 }}
-            display={'inline'}
-            color={'primary'}
-          >
-            {t('translation:hero.brand')}
-          </Typography>
-        </Typography>
-      </Stack>
-      <Typography
-        sx={{ textAlign: 'center' }}
-        fontSize={{ xs: 15, md: 20 }}
-        mb={2}
-      >
-        {t('translation:hero.description')}
-      </Typography>
-
       <Autocomplete
         sx={{ mb: 2 }}
         autoHighlight
