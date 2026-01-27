@@ -1,0 +1,7 @@
+services:
+  omni-tools:
+    image: omni-tools:latest
+    container_name: omni-tools
+    restart: unless-stopped
+    ports:
+      - "8080:80"
