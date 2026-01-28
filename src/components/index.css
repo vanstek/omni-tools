@@ -7,5 +7,13 @@ a:hover {
 }
 
 * {
-  font-family: Quicksand,sans-serif!important;
+  font-family: Quicksand, sans-serif !important;
+}
+
+body,
+body * {
+  transition:
+    background-color 0.8s ease-in-out,
+    color 0.8s ease-in-out,
+    border-color 0.3s ease-in-out;
 }

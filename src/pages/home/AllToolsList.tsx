@@ -13,24 +13,15 @@ import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { categoriesColors } from 'config/uiConfig';
-import { useUserTypeFilter } from 'providers/UserTypeFilterProvider';
-import { filterToolsByUserTypes } from '@tools/index';
 
 export default function AllToolsList() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { selectedUserTypes } = useUserTypeFilter();
-
-  // Filter tools based on selected user types
-  const filteredTools =
-    selectedUserTypes.length > 0
-      ? filterToolsByUserTypes(tools, selectedUserTypes)
-      : tools;
 
   return (
     <Box width={'90%'} maxWidth={'1400px'}>
       <Grid container spacing={2}>
-        {filteredTools.map((tool, index) => (
+        {tools.map((tool, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={tool.path}>
             <ToolCard tool={tool} index={index} t={t} navigate={navigate} />
           </Grid>

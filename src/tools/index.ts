@@ -28,10 +28,9 @@ const toolCategoriesOrder: ToolCategory[] = [
   'list',
   'csv',
   'number',
-  'time',
-  'xml',
   'gif',
-  'converters'
+  'converters',
+  'xml'
 ];
 export const tools: DefinedTool[] = [
   ...imageTools,

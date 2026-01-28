@@ -107,9 +107,8 @@ const SingleCompactCategory = function ({
 };
 
 export default function CategoriesCompact() {
-  const { selectedUserTypes } = useUserTypeFilter();
   const { t } = useTranslation();
-  const categories = getToolsByCategory(selectedUserTypes, t);
+  const categories = getToolsByCategory([], t);
 
   return (
     <Grid width={'90%'} maxWidth={'1400px'} container spacing={2}>

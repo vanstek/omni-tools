@@ -1,6 +1,8 @@
 import { getToolsByCategory } from '@tools/index';
 import {
   Box,
+  Card,
+  CardContent,
   Typography,
   Link as MuiLink,
   useTheme,
@@ -9,30 +11,31 @@ import {
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { useUserTypeFilter } from 'providers/UserTypeFilterProvider';
 import { Icon } from '@iconify/react';
 import { categoriesColors } from 'config/uiConfig';
 
 export default function TextOnlyToolsList() {
   const { t } = useTranslation();
   const theme = useTheme();
-  const { selectedUserTypes } = useUserTypeFilter();
 
   // Get categories with their tools
-  const categories = getToolsByCategory(selectedUserTypes, t);
+  const categories = getToolsByCategory([], t);
 
   return (
     <Box width={'90%'} maxWidth={'1400px'}>
       <Box
         sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(3, 1fr)',
-            lg: 'repeat(5, 1fr)'
+          columnCount: {
+            xs: 1,
+            sm: 2,
+            md: 3,
+            lg: 4
           },
-          gap: 4
+          columnGap: 3,
+          '& > *': {
+            breakInside: 'avoid',
+            marginBottom: 3
+          }
         }}
       >
         {categories.map((category, categoryIndex) => (
@@ -53,60 +56,68 @@ function CategorySection({ category, categoryIndex, t, theme }: any) {
   const [hoveredCategory, setHoveredCategory] = useState(false);
 
   return (
-    <Box>
-      {/* Category Header */}
-      <MuiLink
-        component={Link}
-        to={'/categories/' + category.type}
-        underline="none"
-        onMouseEnter={() => setHoveredCategory(true)}
-        onMouseLeave={() => setHoveredCategory(false)}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-            mb: 1.5,
-            pb: 1,
-            borderBottom: `2px solid ${alpha(
-              categoriesColors[categoryIndex % categoriesColors.length],
-              0.3
-            )}`
-          }}
+    <Card
+      sx={{
+        backgroundColor: 'background.paper',
+        border: '1px solid',
+        borderColor: 'divider',
+        display: 'inline-block',
+        width: '100%'
+      }}
+    >
+      <CardContent>
+        {/* Category Header */}
+        <MuiLink
+          component={Link}
+          to={'/categories/' + category.type}
+          underline="none"
+          onMouseEnter={() => setHoveredCategory(true)}
+          onMouseLeave={() => setHoveredCategory(false)}
         >
-          <Icon
-            icon={category.icon}
-            fontSize={'24px'}
-            color={categoriesColors[categoryIndex % categoriesColors.length]}
-            style={{
-              transition: 'transform 0.2s ease-in-out',
-              transform: hoveredCategory ? 'scale(1.1)' : 'scale(1)'
-            }}
-          />
-          <Typography
-            variant="subtitle1"
-            fontWeight={700}
+          <Box
             sx={{
-              color: hoveredCategory
-                ? 'primary.main'
-                : categoriesColors[categoryIndex % categoriesColors.length],
-              transition: 'color 0.2s ease-in-out',
-              fontSize: '1rem'
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              mb: 1.5,
+              pb: 1,
+              borderBottom: `2px solid ${alpha(
+                categoriesColors[categoryIndex % categoriesColors.length],
+                0.3
+              )}`
             }}
           >
-            {category.rawTitle}
-          </Typography>
-        </Box>
-      </MuiLink>
+            <Icon
+              icon={category.icon}
+              fontSize={'24px'}
+              color={categoriesColors[categoryIndex % categoriesColors.length]}
+              style={{
+                transition: 'transform 0.2s ease-in-out',
+                transform: hoveredCategory ? 'scale(1.1)' : 'scale(1)'
+              }}
+            />
+            <Typography
+              variant="subtitle1"
+              fontWeight={700}
+              sx={{
+                color: hoveredCategory ? 'primary.main' : 'text.primary',
+                transition: 'color 0.2s ease-in-out',
+                fontSize: '1rem'
+              }}
+            >
+              {category.rawTitle}
+            </Typography>
+          </Box>
+        </MuiLink>
 
-      {/* Tools List */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-        {category.tools.map((tool: any) => (
-          <ToolLink key={tool.path} tool={tool} t={t} theme={theme} />
-        ))}
-      </Box>
-    </Box>
+        {/* Tools List */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+          {category.tools.map((tool: any) => (
+            <ToolLink key={tool.path} tool={tool} t={t} theme={theme} />
+          ))}
+        </Box>
+      </CardContent>
+    </Card>
   );
 }
 
