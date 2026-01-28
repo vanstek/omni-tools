@@ -20,6 +20,7 @@ import { FullI18nKey, I18nNamespaces } from '../i18n';
 const toolCategoriesOrder: ToolCategory[] = [
   'image-generic',
   'pdf',
+  'xml',
   'string',
   'video',
   'time',
@@ -29,8 +30,7 @@ const toolCategoriesOrder: ToolCategory[] = [
   'csv',
   'number',
   'gif',
-  'converters',
-  'xml'
+  'converters'
 ];
 export const tools: DefinedTool[] = [
   ...imageTools,
