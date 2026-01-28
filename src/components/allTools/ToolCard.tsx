@@ -27,7 +27,6 @@ export default function ToolCard({
       sx={{
         borderRadius: 2,
         bgcolor: 'background.darkSecondary',
-        borderColor: 'background.darkSecondary',
         color: '#fff',
         border: '1px solid',
         borderColor: 'divider',
