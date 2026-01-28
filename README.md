@@ -20,7 +20,7 @@
         </a>
         <br /><br />
 </div>
-## This fork was completely vibe-coded. Use at own discretion.
+<h2>This fork was completely vibe-coded. Use at own discretion.</h2> 
 
 Welcome to OmniTools, a self-hosted web app offering a variety of online tools to simplify everyday tasks.
 Whether you are coding, manipulating images/videos, PDFs or crunching numbers, OmniTools has you covered. Please don't
