@@ -1,7 +1,7 @@
 import { defineTool } from '@tools/defineTool';
 import { lazy } from 'react';
 
-export const tool = defineTool('png', {
+export const tool = defineTool('image-generic', {
   i18n: {
     name: 'image:convertJgpToPng.title',
     description: 'image:convertJgpToPng.description',

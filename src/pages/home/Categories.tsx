@@ -36,16 +36,12 @@ const SingleCategory = function ({
   const seeAllText = t('translation:categories.seeAll', 'See all {{title}}', {
     title: categoryTitle
   });
-  const tryText = t('translation:categories.try', 'Try {{title}}', {
-    //@ts-ignore
-    title: t(category.example.title)
-  });
 
   return (
     <Grid
       item
       xs={12}
-      md={6}
+      md={4}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >
@@ -84,28 +80,16 @@ const SingleCategory = function ({
               </Stack>
               <Typography sx={{ mt: 2 }}>{categoryDescription}</Typography>
             </Box>
-            <Grid container spacing={2} mt={2}>
-              <Grid item xs={12} md={6}>
-                <Button
-                  fullWidth
-                  sx={{ height: '100%' }}
-                  onClick={() => navigate('/categories/' + category.type)}
-                  variant={'contained'}
-                >
-                  {seeAllText}
-                </Button>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Button
-                  sx={{ backgroundColor: 'background.default', height: '100%' }}
-                  fullWidth
-                  onClick={() => navigate(category.example.path)}
-                  variant={'outlined'}
-                >
-                  {tryText}
-                </Button>
-              </Grid>
-            </Grid>
+            <Box mt={2}>
+              <Button
+                fullWidth
+                sx={{ height: '100%' }}
+                onClick={() => navigate('/categories/' + category.type)}
+                variant={'contained'}
+              >
+                {seeAllText}
+              </Button>
+            </Box>
           </Stack>
         </CardContent>
       </Card>

@@ -28,7 +28,6 @@ const toolCategoriesOrder: ToolCategory[] = [
   'list',
   'csv',
   'number',
-  'png',
   'time',
   'xml',
   'gif',
@@ -59,12 +58,6 @@ const categoriesConfig: {
     icon: 'solar:text-bold-duotone',
     value: 'translation:categories.string.description',
     title: 'translation:categories.string.title'
-  },
-  {
-    type: 'png',
-    icon: 'ph:file-png-thin',
-    value: 'translation:categories.png.description',
-    title: 'translation:categories.png.title'
   },
   {
     type: 'number',
@@ -151,7 +144,6 @@ const CATEGORIES_USER_TYPES_MAPPINGS: Partial<Record<ToolCategory, UserType>> =
     csv: 'developers',
     json: 'developers',
     gif: 'generalUsers',
-    png: 'generalUsers',
     'image-generic': 'generalUsers',
     video: 'generalUsers',
     audio: 'generalUsers',

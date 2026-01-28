@@ -23,6 +23,7 @@ import { useTheme } from '@mui/material/styles';
 import { Icon } from '@iconify/react';
 import { Mode } from 'components/App';
 import { useTranslation } from 'react-i18next';
+import { useHomeLayout } from 'contexts/HomeLayoutContext';
 
 interface NavbarProps {
   mode: Mode;
@@ -45,11 +46,12 @@ const Navbar: React.FC<NavbarProps> = ({
   mode,
   onChangeMode: onChangeMode
 }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const navigate = useNavigate();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { layoutType, toggleLayout } = useHomeLayout();
   const toggleDrawer = (open: boolean) => () => {
     setDrawerOpen(open);
   };
@@ -98,6 +100,21 @@ const Navbar: React.FC<NavbarProps> = ({
 
   const buttons: ReactNode[] = [
     languageSelector,
+    <IconButton
+      key="layout-toggle"
+      onClick={toggleLayout}
+      sx={{ color: 'inherit' }}
+      title={layoutType === 'compact' ? 'Text list view' : 'Grid view'}
+    >
+      <Icon
+        fontSize={28}
+        icon={
+          layoutType === 'compact'
+            ? 'material-symbols:format-list-bulleted'
+            : 'material-symbols:grid-view-rounded'
+        }
+      />
+    </IconButton>,
     <Icon
       key={mode}
       onClick={onChangeMode}
@@ -122,8 +139,8 @@ const Navbar: React.FC<NavbarProps> = ({
           <ListItemText primary={navItem.label} />
         </ListItemButton>
       ))}
-      {buttons.map((button) => (
-        <ListItem>{button}</ListItem>
+      {buttons.map((button, index) => (
+        <ListItem key={`drawer-button-${index}`}>{button}</ListItem>
       ))}
     </List>
   );
