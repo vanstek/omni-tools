@@ -32,6 +32,11 @@ function App() {
   const [theme, setTheme] = useState<Theme>(() => getTheme(mode));
   useEffect(() => setTheme(getTheme(mode)), [mode]);
 
+  // Add 'loaded' class after initial render to enable transitions
+  useEffect(() => {
+    document.body.classList.add('loaded');
+  }, []);
+
   // Make sure to update the theme when the mode changes
   useEffect(() => {
     const systemDarkModeQuery = window.matchMedia(

@@ -23,6 +23,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SearchIcon from '@mui/icons-material/Search';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { validNamespaces } from '../../i18n';
 
 const StyledLink = styled(Link)(({ theme }) => ({
   '&:hover': {

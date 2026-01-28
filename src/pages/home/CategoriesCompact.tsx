@@ -26,10 +26,6 @@ const SingleCompactCategory = function ({
   const [hovered, setHovered] = useState<boolean>(false);
 
   const categoryTitle = t(`categories.${category.type}.title`, category.title);
-  const categoryDescription = t(
-    `categories.${category.type}.description`,
-    category.description
-  );
 
   return (
     <Grid
@@ -77,26 +73,10 @@ const SingleCompactCategory = function ({
                 fontWeight={700}
                 sx={{
                   color: hovered ? 'primary.main' : 'text.primary',
-                  transition: 'color 0.2s ease-in-out',
-                  mb: 1
+                  transition: 'color 0.2s ease-in-out'
                 }}
               >
                 {categoryTitle}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{
-                  fontSize: '0.875rem',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  minHeight: '2.5em'
-                }}
-              >
-                {categoryDescription}
               </Typography>
             </Box>
           </Stack>

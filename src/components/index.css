@@ -10,8 +10,8 @@ a:hover {
   font-family: Quicksand, sans-serif !important;
 }
 
-body,
-body * {
+body.loaded,
+body.loaded * {
   transition:
     background-color 0.8s ease-in-out,
     color 0.8s ease-in-out,
