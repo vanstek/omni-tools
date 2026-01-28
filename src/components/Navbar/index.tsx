@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from 'assets/logo.png';
 import {
   Drawer,
   List,
@@ -23,6 +22,7 @@ import { Icon } from '@iconify/react';
 import { Mode } from 'components/App';
 import { useTranslation } from 'react-i18next';
 import { useHomeLayout } from 'contexts/HomeLayoutContext';
+import Typography from '@mui/material/Typography';
 
 interface NavbarProps {
   mode: Mode;
@@ -161,9 +161,16 @@ const Navbar: React.FC<NavbarProps> = ({
           mx: { md: '50px', lg: '150px' }
         }}
       >
-        <Link to="/">
-          <img src={logo} width={isMobile ? '120px' : '200px'} />
-        </Link>
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: 700,
+            color: 'text.primary',
+            fontSize: isMobile ? '1.5rem' : '2rem'
+          }}
+        >
+          Omnitools
+        </Typography>
         {isMobile ? (
           <>
             <IconButton
