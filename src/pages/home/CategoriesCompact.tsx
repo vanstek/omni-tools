@@ -1,6 +1,6 @@
 import { getToolsByCategory } from '@tools/index';
 import Grid from '@mui/material/Grid';
-import { Box, Card, CardContent, Stack, useTheme, alpha } from '@mui/material';
+import { Box, Card, CardContent, Stack, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
@@ -49,9 +49,6 @@ const SingleCompactCategory = function ({
           backgroundColor: hovered ? 'background.hover' : 'background.paper',
           transition: 'all 0.2s ease-in-out',
           transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
-          boxShadow: hovered
-            ? `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`
-            : `0 2px 4px ${alpha(theme.palette.common.black, 0.1)}`,
           border: `1px solid ${
             hovered ? theme.palette.primary.main : 'transparent'
           }`

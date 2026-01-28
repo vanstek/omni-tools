@@ -29,10 +29,8 @@ export default function ToolCard({
         bgcolor: 'background.darkSecondary',
         borderColor: 'background.darkSecondary',
         color: '#fff',
-        boxShadow:
-          theme.palette.mode === 'dark'
-            ? null
-            : '6px 6px 12px #b8b9be, -6px -6px 12px #fff',
+        border: '1px solid',
+        borderColor: 'divider',
         cursor: 'pointer',
         height: '100%',
         '&:hover': {

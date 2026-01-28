@@ -119,9 +119,6 @@ export default function ToolsByCategory() {
               <Stack
                 sx={{
                   backgroundColor: 'background.paper',
-                  boxShadow: `5px 4px 2px ${
-                    theme.palette.mode === 'dark' ? 'black' : '#E9E9ED'
-                  }`,
                   cursor: 'pointer',
                   height: '100%',
                   '&:hover': {

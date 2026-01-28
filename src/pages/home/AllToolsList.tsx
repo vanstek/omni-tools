@@ -6,8 +6,7 @@ import {
   Grid,
   Stack,
   Typography,
-  useTheme,
-  alpha
+  useTheme
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
@@ -56,9 +55,6 @@ function ToolCard({ tool, index, t, navigate }: any) {
         backgroundColor: hovered ? 'background.hover' : 'background.paper',
         transition: 'all 0.2s ease-in-out',
         transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
-        boxShadow: hovered
-          ? `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`
-          : `0 2px 4px ${alpha(theme.palette.common.black, 0.1)}`,
         border: `1px solid ${
           hovered ? theme.palette.primary.main : 'transparent'
         }`

@@ -42,12 +42,12 @@ export default function ExampleCard<T>({
         height: '100%',
         overflow: 'hidden',
         borderRadius: 2,
-        transition: 'background-color 0.3s ease',
+        transition: 'all 0.3s ease',
         cursor: 'pointer',
+        border: '1px solid transparent',
         '&:hover': {
-          boxShadow: `12px 9px 11px 2px ${
-            theme.palette.mode === 'dark' ? theme.palette.grey[900] : '#b8b9be'
-          }, -6px -6px 12px ${theme.palette.mode === 'dark' ? 'black' : '#fff'}`
+          borderColor: 'primary.main',
+          bgcolor: 'background.hover'
         }
       }}
     >
@@ -69,11 +69,11 @@ export default function ExampleCard<T>({
                 zIndex: '2',
                 width: '100%',
                 height: '100%',
-                bgcolor: 'transparent',
+                bgcolor: 'background.default',
                 padding: '5px 10px',
                 borderRadius: '5px',
-                boxShadow:
-                  'inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;'
+                border: '1px solid',
+                borderColor: 'divider'
               }}
             >
               <TextField
@@ -100,11 +100,12 @@ export default function ExampleCard<T>({
               zIndex: '2',
               width: '100%',
               height: '100%',
-              bgcolor: 'transparent',
+              bgcolor: 'background.default',
               padding: '5px 10px',
               borderRadius: '5px',
               cursor: 'pointer',
-              boxShadow: 'inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;'
+              border: '1px solid',
+              borderColor: 'divider'
             }}
           >
             <TextField
